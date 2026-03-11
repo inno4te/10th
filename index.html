@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team21 Academy — August 15 Celebration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@300;400;500;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9922A;
+  --gold-light: #E8B84B;
+  --gold-pale: #F5E6C8;
+  --teal: #0D4F5C;
+  --teal-dark: #082E38;
+  --teal-mid: #1A7A8A;
+  --cream: #FAF6EE;
+  --white: #FFFFFF;
+  --text: #1A1A1A;
+  --text-light: #5A5A5A;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── LANG TOGGLE ── */
+.lang-bar {
+  position: fixed; top: 0; right: 0; left: 0; z-index: 1000;
+  background: var(--teal-dark);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 44px;
+}
+.lang-bar .brand-mini {
+  font-family: 'Cinzel', serif;
+  color: var(--gold-light); font-size: .8rem; letter-spacing: .15em;
+}
+.lang-select {
+  background: var(--teal-mid); border: 1px solid var(--gold);
+  color: var(--gold-light); padding: .25rem .75rem;
+  border-radius: 4px; font-family: 'Jost', sans-serif;
+  font-size: .85rem; cursor: pointer; outline: none;
+}
+.nav-links { display: flex; gap: 1.5rem; }
+.nav-links a {
+  color: rgba(255,255,255,.7); text-decoration: none;
+  font-size: .8rem; letter-spacing: .08em; text-transform: uppercase;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--gold-light); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(160deg, rgba(8,46,56,.92) 0%, rgba(13,79,92,.85) 50%, rgba(201,146,42,.3) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><circle cx="30" cy="30" r="1.5" fill="%23C9922A" opacity=".25"/></svg>');
+  background-size: cover, 60px 60px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 6rem 2rem 4rem;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 60% 40%, rgba(201,146,42,.18) 0%, transparent 70%);
+}
+.hero-kicker {
+  font-family: 'Cinzel', serif;
+  color: var(--gold-light); font-size: .85rem;
+  letter-spacing: .3em; text-transform: uppercase;
+  margin-bottom: 1.2rem; opacity: 0;
+  animation: fadeUp .8s .2s forwards;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 900; color: #fff;
+  line-height: 1.05; margin-bottom: .8rem;
+  opacity: 0; animation: fadeUp .8s .4s forwards;
+}
+.hero h1 span { color: var(--gold-light); font-style: italic; }
+.hero-date {
+  font-family: 'Cinzel', serif;
+  color: var(--gold); font-size: 1.4rem;
+  letter-spacing: .2em; margin: 1rem 0 1.5rem;
+  opacity: 0; animation: fadeUp .8s .6s forwards;
+}
+.hero-verse {
+  max-width: 600px; margin: 0 auto 2.5rem;
+  font-style: italic; color: rgba(255,255,255,.85);
+  font-size: 1.05rem; line-height: 1.7;
+  border-left: 3px solid var(--gold);
+  padding-left: 1.2rem; text-align: left;
+  opacity: 0; animation: fadeUp .8s .8s forwards;
+}
+.hero-verse cite {
+  display: block; margin-top: .4rem;
+  font-style: normal; color: var(--gold-light);
+  font-size: .85rem; letter-spacing: .1em;
+}
+.hero-stats {
+  display: flex; gap: 3rem; margin-top: 1rem;
+  opacity: 0; animation: fadeUp .8s 1s forwards;
+}
+.stat { text-align: center; }
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem; font-weight: 900;
+  color: var(--gold-light);
+}
+.stat-label { font-size: .8rem; color: rgba(255,255,255,.7); letter-spacing: .1em; text-transform: uppercase; }
+.hero-scroll {
+  position: absolute; bottom: 2rem; left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,.5); font-size: .75rem;
+  letter-spacing: .15em; text-transform: uppercase;
+  display: flex; flex-direction: column; align-items: center; gap: .4rem;
+  animation: bounce 2s infinite;
+}
+.hero-scroll::after {
+  content: '↓'; font-size: 1.2rem; color: var(--gold);
+}
+
+/* ── SECTION BASE ── */
+section { padding: 5rem 2rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-family: 'Cinzel', serif;
+  color: var(--gold); font-size: .78rem;
+  letter-spacing: .3em; text-transform: uppercase;
+  margin-bottom: .8rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700; color: var(--teal-dark);
+  margin-bottom: 1.5rem; line-height: 1.2;
+}
+.section-title em { color: var(--gold); font-style: italic; }
+.divider {
+  width: 60px; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  margin-bottom: 2rem;
+}
+
+/* ── RSVP / REGISTRATION ── */
+.rsvp-section { background: var(--white); }
+.rsvp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.rsvp-info p { color: var(--text-light); line-height: 1.8; margin-bottom: 1rem; }
+.rsvp-card {
+  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+  border-radius: 16px; padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(8,46,56,.25);
+}
+.rsvp-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold-light); font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.form-group { margin-bottom: 1.2rem; }
+.form-group label {
+  display: block; color: rgba(255,255,255,.7);
+  font-size: .82rem; letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: .4rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: .75rem 1rem;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 8px; color: #fff;
+  font-family: 'Jost', sans-serif; font-size: .95rem;
+  outline: none; transition: border-color .2s;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(255,255,255,.4); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold-light); }
+.form-group select option { background: var(--teal-dark); color: #fff; }
+.btn-primary {
+  width: 100%; padding: .9rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  border: none; border-radius: 8px;
+  font-family: 'Cinzel', serif; font-size: .9rem;
+  color: var(--teal-dark); letter-spacing: .1em;
+  cursor: pointer; transition: transform .15s, box-shadow .15s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,146,42,.4); }
+
+/* ── COMMITTEES ── */
+.committees-section { background: var(--cream); }
+.committees-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem; margin-top: 2rem;
+}
+.committee-card {
+  background: var(--white);
+  border-radius: 12px; padding: 1.8rem 1.5rem;
+  text-align: center; border: 1px solid rgba(201,146,42,.2);
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  cursor: pointer; position: relative; overflow: hidden;
+}
+.committee-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  transform: scaleX(0); transition: transform .3s;
+  transform-origin: left;
+}
+.committee-card:hover { transform: translateY(-4px); box-shadow: 0 12px 35px rgba(8,46,56,.12); border-color: var(--gold); }
+.committee-card:hover::before { transform: scaleX(1); }
+.committee-icon { font-size: 2.2rem; margin-bottom: .8rem; }
+.committee-name {
+  font-family: 'Cinzel', serif; font-size: .9rem;
+  color: var(--teal-dark); margin-bottom: .4rem; font-weight: 700;
+}
+.committee-desc { font-size: .8rem; color: var(--text-light); line-height: 1.5; margin-bottom: 1rem; }
+.btn-join {
+  display: inline-block; padding: .45rem 1.2rem;
+  background: var(--teal); color: #fff;
+  border-radius: 20px; font-size: .78rem;
+  text-decoration: none; letter-spacing: .05em;
+  transition: background .2s;
+}
+.btn-join:hover { background: var(--gold); color: var(--teal-dark); }
+
+/* ── VERSE BANNER ── */
+.verse-banner {
+  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal-mid) 100%);
+  padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden;
+}
+.verse-banner::before {
+  content: '"'; position: absolute; top: -2rem; left: 2rem;
+  font-family: 'Playfair Display', serif; font-size: 20rem;
+  color: rgba(255,255,255,.03); line-height: 1;
+}
+.verse-banner blockquote {
+  max-width: 800px; margin: 0 auto;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  color: #fff; line-height: 1.6; font-style: italic;
+}
+.verse-banner blockquote::before,
+.verse-banner blockquote::after { content: none; }
+.verse-ref {
+  margin-top: 1.5rem;
+  font-family: 'Cinzel', serif; font-size: .9rem;
+  color: var(--gold-light); letter-spacing: .2em;
+}
+.servant-label {
+  display: inline-block; margin-top: 1rem;
+  background: rgba(201,146,42,.2); border: 1px solid var(--gold);
+  border-radius: 4px; padding: .3rem 1rem;
+  font-size: .75rem; color: var(--gold-light); letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+/* ── GLOBAL MAP ── */
+.global-section { background: var(--white); }
+.maps-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; margin-top: 2rem;
+}
+.map-card {
+  background: var(--teal-dark); border-radius: 12px;
+  overflow: hidden; position: relative;
+  aspect-ratio: 4/3;
+}
+.map-svg { width: 100%; height: 100%; }
+.map-label {
+  position: absolute; bottom: .8rem; left: .8rem;
+  background: rgba(8,46,56,.85); color: var(--gold-light);
+  font-family: 'Cinzel', serif; font-size: .75rem;
+  letter-spacing: .1em; padding: .3rem .8rem; border-radius: 4px;
+}
+.map-dot {
+  fill: var(--gold-light);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; r: 4; }
+  50% { opacity: .5; r: 6; }
+}
+.regions-list {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: .8rem; margin-top: 2rem;
+}
+.region-chip {
+  display: flex; align-items: center; gap: .6rem;
+  background: var(--cream); border-radius: 8px;
+  padding: .6rem 1rem; border: 1px solid rgba(201,146,42,.25);
+}
+.region-flag { font-size: 1.2rem; }
+.region-name { font-size: .85rem; color: var(--teal-dark); font-weight: 500; }
+
+/* ── TESTIMONY ── */
+.testimony-section { background: var(--cream); }
+.testimony-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.testimony-intro p { color: var(--text-light); line-height: 1.8; margin-bottom: 1rem; }
+.testimony-form-card {
+  background: var(--white); border-radius: 16px;
+  padding: 2.5rem; border: 1px solid rgba(201,146,42,.2);
+  box-shadow: 0 8px 30px rgba(8,46,56,.06);
+}
+.testimony-form-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--teal-dark); font-size: 1.4rem; margin-bottom: 1.5rem;
+}
+.form-group-light label {
+  display: block; color: var(--text-light);
+  font-size: .82rem; letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: .4rem;
+}
+.form-group-light input,
+.form-group-light textarea {
+  width: 100%; padding: .75rem 1rem;
+  background: var(--cream); border: 1px solid rgba(201,146,42,.3);
+  border-radius: 8px; color: var(--text);
+  font-family: 'Jost', sans-serif; font-size: .95rem;
+  outline: none; transition: border-color .2s;
+  margin-bottom: 1rem;
+}
+.form-group-light input:focus,
+.form-group-light textarea:focus { border-color: var(--gold); }
+.file-upload-area {
+  border: 2px dashed rgba(201,146,42,.4); border-radius: 8px;
+  padding: 1.5rem; text-align: center; cursor: pointer;
+  margin-bottom: 1rem; transition: border-color .2s, background .2s;
+}
+.file-upload-area:hover { border-color: var(--gold); background: var(--gold-pale); }
+.file-upload-area p { color: var(--text-light); font-size: .85rem; }
+.file-upload-area input[type="file"] { display: none; }
+.btn-whatsapp {
+  width: 100%; padding: .9rem;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  border: none; border-radius: 8px;
+  font-family: 'Cinzel', serif; font-size: .9rem;
+  color: #fff; letter-spacing: .08em;
+  cursor: pointer; transition: transform .15s, box-shadow .15s;
+  display: flex; align-items: center; justify-content: center; gap: .6rem;
+}
+.btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,211,102,.35); }
+
+/* ── ABOUT TEAM21 ── */
+.about-section {
+  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+  color: #fff;
+}
+.about-section .section-title { color: #fff; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.about-text p { color: rgba(255,255,255,.8); line-height: 1.9; margin-bottom: 1rem; }
+.milestones {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+}
+.milestone {
+  background: rgba(255,255,255,.08); border-radius: 12px;
+  padding: 1.5rem; border: 1px solid rgba(255,255,255,.1);
+  text-align: center;
+}
+.milestone-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem; font-weight: 900; color: var(--gold-light);
+}
+.milestone-desc { font-size: .82rem; color: rgba(255,255,255,.65); margin-top: .3rem; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--teal-dark); padding: 3rem 2rem;
+  text-align: center;
+}
+footer .footer-logo {
+  font-family: 'Cinzel', serif; font-size: 1.4rem;
+  color: var(--gold-light); letter-spacing: .2em; margin-bottom: .8rem;
+}
+footer p { color: rgba(255,255,255,.5); font-size: .85rem; }
+footer a { color: var(--gold); text-decoration: none; }
+
+/* ── COHORT BADGE ── */
+.cohort-badge { margin-top: 1.5rem; }
+.cohort-pill {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(201,146,42,.25) 0%, rgba(232,184,75,.15) 100%);
+  border: 1.5px solid var(--gold);
+  border-radius: 50px; padding: .55rem 1.6rem;
+  font-family: 'Cinzel', serif; font-size: .88rem;
+  color: var(--gold-light); letter-spacing: .12em;
+}
+
+/* ── COUNTDOWN ── */
+.countdown-wrap {
+  margin-top: 2rem; text-align: center;
+}
+.countdown-label {
+  font-family: 'Cinzel', serif;
+  color: rgba(255,255,255,.6); font-size: .75rem;
+  letter-spacing: .22em; text-transform: uppercase;
+  margin-bottom: .8rem;
+}
+.countdown-box {
+  display: flex; justify-content: center;
+}
+.countdown-num-wrap {
+  display: flex; flex-direction: column; align-items: center;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(201,146,42,.4);
+  border-radius: 14px; padding: 1.2rem 3rem;
+  backdrop-filter: blur(8px);
+}
+.countdown-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem; font-weight: 900;
+  color: var(--gold-light); line-height: 1;
+  text-shadow: 0 0 40px rgba(232,184,75,.4);
+  letter-spacing: -.02em;
+}
+.countdown-unit {
+  font-family: 'Cinzel', serif; font-size: .75rem;
+  color: rgba(255,255,255,.5); letter-spacing: .25em;
+  margin-top: .3rem; text-transform: uppercase;
+}
+.countdown-sub {
+  font-size: .82rem; color: rgba(255,255,255,.45);
+  letter-spacing: .08em; margin-top: .7rem;
+  font-style: italic;
+}
+
+/* ── QUOTES TICKER ── */
+.quotes-ticker {
+  margin-top: 2rem;
+  max-width: 680px; text-align: center;
+  min-height: 3.5rem; display: flex; align-items: center; justify-content: center;
+}
+.quote-display {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(.95rem, 2vw, 1.2rem);
+  font-style: italic; color: rgba(255,255,255,.7);
+  transition: opacity .6s ease, transform .6s ease;
+  line-height: 1.6;
+}
+.quote-display.fade-out { opacity: 0; transform: translateY(-8px); }
+.quote-display.fade-in  { opacity: 1; transform: translateY(0); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .rsvp-grid, .testimony-grid, .about-grid { grid-template-columns: 1fr; }
+  .maps-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+  .nav-links { display: none; }
+}
+
+/* ── SUCCESS MESSAGE ── */
+.success-msg {
+  display: none; background: rgba(37,211,102,.15);
+  border: 1px solid #25D366; border-radius: 8px;
+  padding: 1rem; color: #128C7E; text-align: center;
+  margin-top: 1rem; font-weight: 500;
+}
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE BAR & NAV -->
+<div class="lang-bar">
+  <span class="brand-mini">TEAM21 ACADEMY</span>
+  <nav class="nav-links">
+    <a href="#rsvp" data-en="RSVP" data-fr="RSVP">RSVP</a>
+    <a href="#committees" data-en="Committees" data-fr="Comités">Committees</a>
+    <a href="#global" data-en="Global Reach" data-fr="Portée Mondiale">Global Reach</a>
+    <a href="#testimony" data-en="Testimony" data-fr="Témoignage">Testimony</a>
+  </nav>
+  <select class="lang-select" id="langToggle" onchange="switchLang(this.value)">
+    <option value="en">🇬🇧 English</option>
+    <option value="fr">🇫🇷 Français</option>
+  </select>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-kicker" data-en="Team21 Academy Presents" data-fr="Team21 Academy Présente">Team21 Academy Presents</p>
+  <h1 data-en="August 15<br><span>Celebration</span><br>& Reunion" data-fr="15 Août<br><span>Célébration</span><br>& Retrouvailles">August 15<br><span>Celebration</span><br>& Reunion</h1>
+  <div class="hero-date">15 · AOÛT · AUGUST · 2026</div>
+  <blockquote class="hero-verse">
+    <span data-en="Not so with you. Instead, whoever wants to become great among you must be your servant, and whoever wants to be first must be your slave — just as the Son of Man did not come to be served, but to serve."
+          data-fr="Il n'en sera pas ainsi parmi vous. Au contraire, quiconque veut être grand parmi vous sera votre serviteur, et quiconque veut être le premier parmi vous sera votre esclave — comme le Fils de l'homme n'est pas venu pour être servi, mais pour servir.">
+      Not so with you. Instead, whoever wants to become great among you must be your servant, and whoever wants to be first must be your slave — just as the Son of Man did not come to be served, but to serve.
+    </span>
+    <cite>Matthew 20:26–28 (NIV)</cite>
+  </blockquote>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-number">1,000+</div><div class="stat-label" data-en="Trained" data-fr="Formés">Trained</div></div>
+    <div class="stat"><div class="stat-number">21+</div><div class="stat-label" data-en="Nations" data-fr="Nations">Nations</div></div>
+    <div class="stat"><div class="stat-number">10+</div><div class="stat-label" data-en="Years Impact" data-fr="Années d'Impact">Years Impact</div></div>
+  </div>
+
+  <!-- COHORT XV BADGE -->
+  <div class="cohort-badge" style="opacity:0;animation:fadeUp .8s 1.1s forwards;">
+    <span class="cohort-pill" data-en="🎓 Come Join Us · Celebrate Cohort XV" data-fr="🎓 Rejoignez-Nous · Célébrons la Cohorte XV">🎓 Come Join Us · Celebrate Cohort XV</span>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-wrap" style="opacity:0;animation:fadeUp .8s 1.3s forwards;">
+    <div class="countdown-label" data-en="10th Anniversary · August 15, 2026" data-fr="10e Anniversaire · 15 Août 2026">10th Anniversary · August 15, 2026</div>
+    <div class="countdown-box">
+      <div class="countdown-num-wrap"><span class="countdown-num" id="cd-days">--</span><span class="countdown-unit" data-en="Days" data-fr="Jours">Days</span></div>
+    </div>
+    <div class="countdown-sub" data-en="to the 10th Anniversary Celebration" data-fr="avant la Célébration du 10e Anniversaire">to the 10th Anniversary Celebration</div>
+  </div>
+
+  <!-- QUOTES TICKER -->
+  <div class="quotes-ticker" style="opacity:0;animation:fadeUp .8s 1.5s forwards;">
+    <div class="quote-display" id="quoteDisplay">"The greatest among you shall be your servant."</div>
+  </div>
+
+  <div class="hero-scroll" data-en="Scroll" data-fr="Défiler">Scroll</div>
+</section>
+
+<!-- RSVP / REGISTRATION -->
+<section class="rsvp-section" id="rsvp">
+  <div class="section-inner">
+    <div class="rsvp-grid">
+      <div class="rsvp-info">
+        <p class="section-label" data-en="Join Us" data-fr="Rejoignez-Nous">Join Us</p>
+        <h2 class="section-title" data-en="Register &amp; <em>RSVP</em>" data-fr="S'inscrire &amp; <em>RSVP</em>">Register &amp; <em>RSVP</em></h2>
+        <div class="divider"></div>
+        <p data-en="Be part of this landmark celebration. Confirm your attendance so we can prepare a memorable experience for every servant-leader joining us on August 15."
+           data-fr="Faites partie de cette célébration historique. Confirmez votre présence afin que nous puissions préparer une expérience mémorable pour chaque leader-serviteur qui nous rejoindra le 15 août.">
+          Be part of this landmark celebration. Confirm your attendance so we can prepare a memorable experience for every servant-leader joining us on August 15.
+        </p>
+        <br>
+        <p data-en="Your registration details are securely captured to help our team plan logistics, meals, and seating with care and excellence."
+           data-fr="Vos informations d'inscription sont enregistrées en toute sécurité pour aider notre équipe à planifier la logistique, les repas et les places avec soin et excellence.">
+          Your registration details are securely captured to help our team plan logistics, meals, and seating with care and excellence.
+        </p>
+      </div>
+      <div class="rsvp-card">
+        <h3 data-en="I Will Be Attending ✓" data-fr="Je Serai Présent(e) ✓">I Will Be Attending ✓</h3>
+        <div class="form-group">
+          <label data-en="Full Name" data-fr="Nom Complet">Full Name</label>
+          <input type="text" id="rsvp-name" placeholder="Your full name" data-ph-en="Your full name" data-ph-fr="Votre nom complet">
+        </div>
+        <div class="form-group">
+          <label data-en="Phone / WhatsApp" data-fr="Téléphone / WhatsApp">Phone / WhatsApp</label>
+          <input type="tel" id="rsvp-phone" placeholder="+237 6XX XXX XXX" data-ph-en="+237 6XX XXX XXX" data-ph-fr="+237 6XX XXX XXX">
+        </div>
+        <div class="form-group">
+          <label data-en="Email (optional)" data-fr="Email (facultatif)">Email (optional)</label>
+          <input type="email" id="rsvp-email" placeholder="you@email.com" data-ph-en="you@email.com" data-ph-fr="vous@email.com">
+        </div>
+        <div class="form-group">
+          <label data-en="City / Country" data-fr="Ville / Pays">City / Country</label>
+          <input type="text" id="rsvp-city" placeholder="e.g. Yaoundé, Cameroon" data-ph-en="e.g. Yaoundé, Cameroon" data-ph-fr="ex. Yaoundé, Cameroun">
+        </div>
+        <div class="form-group">
+          <label data-en="Number of guests attending" data-fr="Nombre d'invités">Number of guests attending</label>
+          <select id="rsvp-guests">
+            <option value="1">1 (Just me)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5+">5+</option>
+          </select>
+        </div>
+        <button class="btn-primary" onclick="submitRSVP()" data-en="Confirm My Attendance →" data-fr="Confirmer Ma Présence →">Confirm My Attendance →</button>
+        <div class="success-msg" id="rsvp-success" data-en="🎉 Thank you! Your RSVP is confirmed. We look forward to celebrating with you!" data-fr="🎉 Merci ! Votre RSVP est confirmé. Nous avons hâte de célébrer avec vous !">
+          🎉 Thank you! Your RSVP is confirmed. We look forward to celebrating with you!
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITTEES -->
+<section class="committees-section" id="committees">
+  <div class="section-inner">
+    <p class="section-label" data-en="Get Involved" data-fr="Impliquez-Vous">Get Involved</p>
+    <h2 class="section-title" data-en="Organizing <em>Committees</em>" data-fr="Comités <em>Organisateurs</em>">Organizing <em>Committees</em></h2>
+    <div class="divider"></div>
+    <p style="color:var(--text-light);max-width:600px;line-height:1.8;margin-bottom:1rem;"
+       data-en="Every great celebration needs great servants behind it. Join a committee and serve with excellence. Click any committee to register via our official form."
+       data-fr="Chaque grande célébration a besoin de grands serviteurs derrière elle. Rejoignez un comité et servez avec excellence. Cliquez sur n'importe quel comité pour vous inscrire via notre formulaire officiel.">
+      Every great celebration needs great servants behind it. Join a committee and serve with excellence. Click any committee to register via our official form.
+    </p>
+    <div class="committees-grid">
+      <div class="committee-card" onclick="openCommitteeForm('Finance')">
+        <div class="committee-icon">💰</div>
+        <div class="committee-name" data-en="Finance" data-fr="Finance">Finance</div>
+        <div class="committee-desc" data-en="Budget management, fundraising, and financial reporting." data-fr="Gestion du budget, collecte de fonds et rapports financiers.">Budget management, fundraising, and financial reporting.</div>
+        <a class="btn-join" data-en="Join Committee" data-fr="Rejoindre">Join Committee</a>
+      </div>
+      <div class="committee-card" onclick="openCommitteeForm('Logistics')">
+        <div class="committee-icon">🚚</div>
+        <div class="committee-name" data-en="Logistics" data-fr="Logistique">Logistics</div>
+        <div class="committee-desc" data-en="Venue, transportation, setup, and coordination." data-fr="Lieu, transport, installation et coordination.">Venue, transportation, setup, and coordination.</div>
+        <a class="btn-join" data-en="Join Committee" data-fr="Rejoindre">Join Committee</a>
+      </div>
+      <div class="committee-card" onclick="openCommitteeForm('Music & Worship')">
+        <div class="committee-icon">🎵</div>
+        <div class="committee-name" data-en="Music & Worship" data-fr="Musique & Louange">Music & Worship</div>
+        <div class="committee-desc" data-en="Praise and worship, instruments, choir, and sound." data-fr="Louange, instruments, chœur et sonorisation.">Praise and worship, instruments, choir, and sound.</div>
+        <a class="btn-join" data-en="Join Committee" data-fr="Rejoindre">Join Committee</a>
+      </div>
+      <div class="committee-card" onclick="openCommitteeForm('Media & Communications')">
+        <div class="committee-icon">📸</div>
+        <div class="committee-name" data-en="Media & Comms" data-fr="Médias & Comms">Media & Comms</div>
+        <div class="committee-desc" data-en="Photography, video, live streaming, and social media." data-fr="Photographie, vidéo, diffusion en direct et réseaux sociaux.">Photography, video, live streaming, and social media.</div>
+        <a class="btn-join" data-en="Join Committee" data-fr="Rejoindre">Join Committee</a>
+      </div>
+      <div class="committee-card" onclick="openCommitteeForm('Food & Hospitality')">
+        <div class="committee-icon">🍽️</div>
+        <div class="committee-name" data-en="Food & Hospitality" data-fr="Nourriture & Hospitalité">Food & Hospitality</div>
+        <div class="committee-desc" data-en="Catering, menu planning, and guest welcome." data-fr="Traiteur, planification des menus et accueil des invités.">Catering, menu planning, and guest welcome.</div>
+        <a class="btn-join" data-en="Join Committee" data-fr="Rejoindre">Join Committee</a>
+      </div>
+      <div class="committee-card" onclick="openCommitteeForm('Decoration & Ambience')">
+        <div class="committee-icon">🌿</div>
+        <div class="committee-name" data-en="Decoration" data-fr="Décoration">Decoration</div>
+        <div class="committee-desc" data-en="Venue décor, flowers, ambience, and aesthetics." data-fr="Décoration de salle, fleurs, ambiance et esthétique.">Venue décor, flowers, ambience, and aesthetics.</div>
+        <a class="btn-join" data-en="Join Committee" data-fr="Rejoindre">Join Committee</a>
+      </div>
+      <div class="committee-card" onclick="openCommitteeForm('Protocol & Reception')">
+        <div class="committee-icon">🤝</div>
+        <div class="committee-name" data-en="Protocol & Reception" data-fr="Protocole & Réception">Protocol & Reception</div>
+        <div class="committee-desc" data-en="Guest registration, ushering, and VIP coordination." data-fr="Inscription des invités, placement et coordination VIP.">Guest registration, ushering, and VIP coordination.</div>
+        <a class="btn-join" data-en="Join Committee" data-fr="Rejoindre">Join Committee</a>
+      </div>
+      <div class="committee-card" onclick="openCommitteeForm('Prayer & Spiritual Direction')">
+        <div class="committee-icon">🙏</div>
+        <div class="committee-name" data-en="Prayer & Spiritual" data-fr="Prière & Spirituel">Prayer & Spiritual</div>
+        <div class="committee-desc" data-en="Intercession, devotionals, and spiritual atmosphere." data-fr="Intercession, dévotion et atmosphère spirituelle.">Intercession, devotionals, and spiritual atmosphere.</div>
+        <a class="btn-join" data-en="Join Committee" data-fr="Rejoindre">Join Committee</a>
+      </div>
+      <div class="committee-card" onclick="openCommitteeForm('Programme & Content')">
+        <div class="committee-icon">📋</div>
+        <div class="committee-name" data-en="Programme" data-fr="Programme">Programme</div>
+        <div class="committee-desc" data-en="Event schedule, speakers, and content curation." data-fr="Programme, intervenants et curation du contenu.">Event schedule, speakers, and content curation.</div>
+        <a class="btn-join" data-en="Join Committee" data-fr="Rejoindre">Join Committee</a>
+      </div>
+      <div class="committee-card" onclick="openCommitteeForm('Technology & A/V')">
+        <div class="committee-icon">💻</div>
+        <div class="committee-name" data-en="Technology & A/V" data-fr="Technologie & A/V">Technology & A/V</div>
+        <div class="committee-desc" data-en="Projectors, screens, microphones, and tech support." data-fr="Projecteurs, écrans, microphones et support technique.">Projectors, screens, microphones, and tech support.</div>
+        <a class="btn-join" data-en="Join Committee" data-fr="Rejoindre">Join Committee</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERSE BANNER -->
+<section class="verse-banner">
+  <blockquote>
+    <span data-en='"Not so with you. Instead, whoever wants to become great among you must be your servant."'
+          data-fr='"Il n\'en sera pas ainsi parmi vous. Au contraire, quiconque veut être grand parmi vous sera votre serviteur."'>
+      "Not so with you. Instead, whoever wants to become great among you must be your servant."
+    </span>
+  </blockquote>
+  <p class="verse-ref">— Matthew 20:26 —</p>
+  <span class="servant-label" data-en="The Servant-Leader Mandate" data-fr="Le Mandat du Leader-Serviteur">The Servant-Leader Mandate</span>
+</section>
+
+<!-- GLOBAL REACH / MAPS -->
+<section class="global-section" id="global">
+  <div class="section-inner">
+    <p class="section-label" data-en="Worldwide Impact" data-fr="Impact Mondial">Worldwide Impact</p>
+    <h2 class="section-title" data-en="Our <em>Global</em> Students" data-fr="Nos Étudiants <em>Mondiaux</em>">Our <em>Global</em> Students</h2>
+    <div class="divider"></div>
+    <p style="color:var(--text-light);max-width:640px;line-height:1.8;margin-bottom:2rem;"
+       data-en="Team21 Academy's servant-leadership principles have reached over 1,000 trained individuals across Africa, Europe, North America, and beyond. Every dot on these maps represents a life being transformed."
+       data-fr="Les principes de leadership-serviteur de Team21 Academy ont touché plus de 1 000 personnes formées à travers l'Afrique, l'Europe, l'Amérique du Nord et au-delà. Chaque point sur ces cartes représente une vie transformée.">
+      Team21 Academy's servant-leadership principles have reached over 1,000 trained individuals across Africa, Europe, North America, and beyond. Every dot on these maps represents a life being transformed.
+    </p>
+    <div class="maps-grid">
+      <!-- Africa Map -->
+      <div class="map-card">
+        <svg class="map-svg" viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="320" fill="#082E38"/>
+          <!-- Simplified Africa outline -->
+          <path d="M90,30 L85,50 L80,70 L75,90 L70,110 L65,130 L62,150 L60,170 L58,190 L60,210 L65,230 L72,248 L80,262 L90,272 L100,280 L110,285 L120,282 L130,275 L140,265 L148,250 L152,235 L155,220 L158,205 L162,188 L168,172 L175,155 L180,140 L182,125 L178,108 L172,95 L165,85 L175,75 L185,65 L190,52 L185,38 L175,28 L160,22 L145,20 L130,22 L115,25 L100,28 Z"
+                fill="#1A7A8A" stroke="#C9922A" stroke-width="1.5" opacity="0.9"/>
+          <!-- Dots for countries -->
+          <circle class="map-dot" cx="115" cy="155" r="5" fill="#E8B84B"/> <!-- Cameroon -->
+          <circle class="map-dot" cx="108" cy="140" r="4" fill="#E8B84B" style="animation-delay:.3s"/> <!-- Nigeria -->
+          <circle class="map-dot" cx="125" cy="165" r="3.5" fill="#E8B84B" style="animation-delay:.6s"/> <!-- Congo -->
+          <circle class="map-dot" cx="138" cy="148" r="3" fill="#E8B84B" style="animation-delay:.9s"/> <!-- CAR -->
+          <circle class="map-dot" cx="105" cy="120" r="3" fill="#E8B84B" style="animation-delay:1.2s"/> <!-- Ghana -->
+          <circle class="map-dot" cx="120" cy="110" r="3" fill="#E8B84B" style="animation-delay:1.5s"/> <!-- Togo/Benin -->
+          <circle class="map-dot" cx="145" cy="135" r="3" fill="#E8B84B" style="animation-delay:1.8s"/> <!-- Chad -->
+          <circle class="map-dot" cx="148" cy="190" r="3" fill="#E8B84B" style="animation-delay:2s"/> <!-- DRC -->
+          <circle class="map-dot" cx="130" cy="215" r="3" fill="#E8B84B" style="animation-delay:.5s"/> <!-- Angola -->
+          <circle class="map-dot" cx="120" cy="240" r="3" fill="#E8B84B" style="animation-delay:.8s"/> <!-- Zambia -->
+          <circle class="map-dot" cx="140" cy="255" r="3" fill="#E8B84B" style="animation-delay:1.1s"/> <!-- Zimbabwe -->
+          <circle class="map-dot" cx="135" cy="270" r="3" fill="#E8B84B" style="animation-delay:1.4s"/> <!-- South Africa -->
+          <circle class="map-dot" cx="160" cy="175" r="3" fill="#E8B84B" style="animation-delay:1.7s"/> <!-- Tanzania -->
+          <circle class="map-dot" cx="160" cy="155" r="3" fill="#E8B84B" style="animation-delay:2.1s"/> <!-- Uganda/Kenya -->
+          <circle class="map-dot" cx="95" cy="95" r="3" fill="#E8B84B" style="animation-delay:.4s"/> <!-- Ivory Coast -->
+          <circle class="map-dot" cx="140" cy="80" r="3" fill="#E8B84B" style="animation-delay:.7s"/> <!-- Libya -->
+          <circle class="map-dot" cx="118" cy="75" r="3" fill="#E8B84B" style="animation-delay:1s"/> <!-- Algeria -->
+          <circle class="map-dot" cx="100" cy="68" r="3" fill="#E8B84B" style="animation-delay:1.3s"/> <!-- Morocco -->
+          <text x="150" y="300" fill="rgba(255,255,255,0.3)" font-size="10" font-family="sans-serif">Africa</text>
+        </svg>
+        <div class="map-label" data-en="📍 Africa — Our Home" data-fr="📍 Afrique — Notre Maison">📍 Africa — Our Home</div>
+      </div>
+      <!-- Europe Map -->
+      <div class="map-card">
+        <svg class="map-svg" viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="320" fill="#082E38"/>
+          <path d="M80,60 L75,75 L70,90 L72,105 L80,115 L85,128 L80,140 L82,155 L90,165 L100,170 L110,165 L120,168 L128,180 L135,185 L145,182 L152,170 L148,158 L155,148 L165,145 L175,150 L180,140 L178,128 L170,120 L165,108 L168,95 L175,85 L172,72 L165,65 L155,60 L145,55 L135,52 L125,52 L115,55 L105,58 L95,58 Z"
+                fill="#1A7A8A" stroke="#C9922A" stroke-width="1.5" opacity="0.9"/>
+          <!-- Dots for Europe cities -->
+          <circle class="map-dot" cx="115" cy="90" r="4" fill="#E8B84B"/> <!-- France -->
+          <circle class="map-dot" cx="130" cy="85" r="3.5" fill="#E8B84B" style="animation-delay:.3s"/> <!-- Germany -->
+          <circle class="map-dot" cx="105" cy="95" r="3" fill="#E8B84B" style="animation-delay:.6s"/> <!-- UK -->
+          <circle class="map-dot" cx="140" cy="100" r="3" fill="#E8B84B" style="animation-delay:.9s"/> <!-- Switzerland -->
+          <circle class="map-dot" cx="120" cy="110" r="3" fill="#E8B84B" style="animation-delay:1.2s"/> <!-- Spain -->
+          <circle class="map-dot" cx="148" cy="110" r="3" fill="#E8B84B" style="animation-delay:1.5s"/> <!-- Italy -->
+          <circle class="map-dot" cx="155" cy="95" r="3" fill="#E8B84B" style="animation-delay:1.8s"/> <!-- Poland -->
+          <circle class="map-dot" cx="160" cy="105" r="3" fill="#E8B84B" style="animation-delay:.4s"/> <!-- Hungary -->
+          <circle class="map-dot" cx="128" cy="70" r="3" fill="#E8B84B" style="animation-delay:.7s"/> <!-- Netherlands -->
+          <circle class="map-dot" cx="135" cy="75" r="3" fill="#E8B84B" style="animation-delay:1s"/> <!-- Belgium -->
+          <text x="130" y="300" fill="rgba(255,255,255,0.3)" font-size="10" font-family="sans-serif" text-anchor="middle">Europe</text>
+        </svg>
+        <div class="map-label" data-en="📍 Europe — Growing Reach" data-fr="📍 Europe — Portée Croissante">📍 Europe — Growing Reach</div>
+      </div>
+      <!-- Americas Map -->
+      <div class="map-card">
+        <svg class="map-svg" viewBox="0 0 300 320" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="320" fill="#082E38"/>
+          <path d="M110,25 L105,40 L100,55 L98,70 L100,85 L105,100 L110,115 L108,130 L105,145 L100,160 L98,175 L100,190 L105,205 L112,218 L120,228 L130,232 L140,228 L145,215 L142,200 L138,185 L135,170 L132,155 L130,140 L132,125 L138,112 L145,100 L148,85 L145,70 L140,56 L132,42 L122,30 L115,22 Z"
+                fill="#1A7A8A" stroke="#C9922A" stroke-width="1.5" opacity="0.9"/>
+          <!-- North America dots -->
+          <circle class="map-dot" cx="115" cy="75" r="4" fill="#E8B84B"/> <!-- USA -->
+          <circle class="map-dot" cx="108" cy="65" r="3.5" fill="#E8B84B" style="animation-delay:.4s"/> <!-- Canada -->
+          <circle class="map-dot" cx="120" cy="88" r="3" fill="#E8B84B" style="animation-delay:.8s"/> <!-- SE USA -->
+          <!-- Central/Caribbean -->
+          <circle class="map-dot" cx="125" cy="108" r="3" fill="#E8B84B" style="animation-delay:1.2s"/> <!-- Mexico -->
+          <circle class="map-dot" cx="132" cy="118" r="3" fill="#E8B84B" style="animation-delay:1.6s"/> <!-- Caribbean -->
+          <!-- South America -->
+          <circle class="map-dot" cx="128" cy="148" r="3.5" fill="#E8B84B" style="animation-delay:.5s"/> <!-- Brazil -->
+          <circle class="map-dot" cx="118" cy="162" r="3" fill="#E8B84B" style="animation-delay:.9s"/> <!-- Colombia -->
+          <circle class="map-dot" cx="122" cy="178" r="3" fill="#E8B84B" style="animation-delay:1.3s"/> <!-- Peru -->
+          <text x="120" y="295" fill="rgba(255,255,255,0.3)" font-size="10" font-family="sans-serif" text-anchor="middle">Americas</text>
+        </svg>
+        <div class="map-label" data-en="📍 Americas — Diaspora" data-fr="📍 Amériques — Diaspora">📍 Americas — Diaspora</div>
+      </div>
+    </div>
+
+    <!-- Region chips -->
+    <div class="regions-list" style="margin-top:2.5rem;">
+      <div class="region-chip"><span class="region-flag">🇨🇲</span><span class="region-name">Cameroon</span></div>
+      <div class="region-chip"><span class="region-flag">🇳🇬</span><span class="region-name">Nigeria</span></div>
+      <div class="region-chip"><span class="region-flag">🇨🇩</span><span class="region-name">DR Congo</span></div>
+      <div class="region-chip"><span class="region-flag">🇬🇭</span><span class="region-name">Ghana</span></div>
+      <div class="region-chip"><span class="region-flag">🇰🇪</span><span class="region-name">Kenya</span></div>
+      <div class="region-chip"><span class="region-flag">🇺🇬</span><span class="region-name">Uganda</span></div>
+      <div class="region-chip"><span class="region-flag">🇹🇿</span><span class="region-name">Tanzania</span></div>
+      <div class="region-chip"><span class="region-flag">🇿🇦</span><span class="region-name">South Africa</span></div>
+      <div class="region-chip"><span class="region-flag">🇫🇷</span><span class="region-name">France</span></div>
+      <div class="region-chip"><span class="region-flag">🇬🇧</span><span class="region-name">United Kingdom</span></div>
+      <div class="region-chip"><span class="region-flag">🇺🇸</span><span class="region-name">United States</span></div>
+      <div class="region-chip"><span class="region-flag">🇨🇦</span><span class="region-name">Canada</span></div>
+      <div class="region-chip"><span class="region-flag">🇧🇪</span><span class="region-name">Belgium</span></div>
+      <div class="region-chip"><span class="region-flag">🇩🇪</span><span class="region-name">Germany</span></div>
+      <div class="region-chip"><span class="region-flag">🇨🇮</span><span class="region-name">Côte d'Ivoire</span></div>
+      <div class="region-chip"><span class="region-flag">🇧🇷</span><span class="region-name">Brazil</span></div>
+      <div class="region-chip"><span class="region-flag">🇦🇴</span><span class="region-name">Angola</span></div>
+      <div class="region-chip"><span class="region-flag">🇸🇳</span><span class="region-name">Senegal</span></div>
+      <div class="region-chip"><span class="region-flag">🇨🇬</span><span class="region-name">Congo-Brazzaville</span></div>
+      <div class="region-chip"><span class="region-flag">🇷🇼</span><span class="region-name">Rwanda</span></div>
+      <div class="region-chip"><span class="region-flag">🌍</span><span class="region-name" data-en="& More..." data-fr="& Plus...">& More...</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT TEAM21 -->
+<section class="about-section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-label" style="color:var(--gold-light);" data-en="Who We Are" data-fr="Qui Nous Sommes">Who We Are</p>
+        <h2 class="section-title" data-en="Team21 <em>Academy</em>" data-fr="Team21 <em>Academy</em>">Team21 <em>Academy</em></h2>
+        <div class="divider"></div>
+        <p data-en="Team21 Academy is a servant-leadership development movement founded on the timeless principle that true greatness is found in service. Rooted in Christian values and anchored in the words of Jesus in Matthew 20:26–28, we equip leaders across Africa and the world with the tools, mindset, and community to serve with excellence."
+           data-fr="Team21 Academy est un mouvement de développement du leadership-serviteur fondé sur le principe intemporel que la vraie grandeur se trouve dans le service. Ancré dans les valeurs chrétiennes et dans les paroles de Jésus en Matthieu 20:26-28, nous équipons des leaders à travers l'Afrique et le monde avec les outils, l'état d'esprit et la communauté pour servir avec excellence.">
+          Team21 Academy is a servant-leadership development movement founded on the timeless principle that true greatness is found in service. Rooted in Christian values and anchored in the words of Jesus in Matthew 20:26–28, we equip leaders across Africa and the world with the tools, mindset, and community to serve with excellence.
+        </p>
+        <br>
+        <p data-en="Through training programs, mentorship, consulting, and publishing, we have now trained over 1,000 servant-leaders — and we are just getting started. August 15 is our moment to celebrate God's faithfulness and look ahead to even greater impact."
+           data-fr="À travers des programmes de formation, du mentorat, du conseil et de l'édition, nous avons maintenant formé plus de 1 000 leaders-serviteurs — et nous ne faisons que commencer. Le 15 août est notre moment de célébrer la fidélité de Dieu et de regarder vers un impact encore plus grand.">
+          Through training programs, mentorship, consulting, and publishing, we have now trained over 1,000 servant-leaders — and we are just getting started. August 15 is our moment to celebrate God's faithfulness and look ahead to even greater impact.
+        </p>
+        <br>
+        <p style="color:var(--gold-light);font-family:'Cinzel',serif;font-size:.9rem;letter-spacing:.1em;">
+          "Unlocking Potential"
+        </p>
+      </div>
+      <div class="milestones">
+        <div class="milestone">
+          <div class="milestone-num">1,000+</div>
+          <div class="milestone-desc" data-en="Leaders Trained" data-fr="Leaders Formés">Leaders Trained</div>
+        </div>
+        <div class="milestone">
+          <div class="milestone-num">21+</div>
+          <div class="milestone-desc" data-en="Nations Reached" data-fr="Nations Atteintes">Nations Reached</div>
+        </div>
+        <div class="milestone">
+          <div class="milestone-num">10+</div>
+          <div class="milestone-desc" data-en="Years of Service" data-fr="Années de Service">Years of Service</div>
+        </div>
+        <div class="milestone">
+          <div class="milestone-num">∞</div>
+          <div class="milestone-desc" data-en="Lives Transformed" data-fr="Vies Transformées">Lives Transformed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONY -->
+<section class="testimony-section" id="testimony">
+  <div class="section-inner">
+    <div class="testimony-grid">
+      <div class="testimony-intro">
+        <p class="section-label" data-en="Share Your Story" data-fr="Partagez Votre Histoire">Share Your Story</p>
+        <h2 class="section-title" data-en="Your <em>Testimony</em>" data-fr="Votre <em>Témoignage</em>">Your <em>Testimony</em></h2>
+        <div class="divider"></div>
+        <p data-en="Has Team21 Academy impacted your life? Has a training, a book, a conversation, or the community touched you in a meaningful way? We want to hear from you — and celebrate God's work through this movement."
+           data-fr="Team21 Academy a-t-elle eu un impact sur votre vie ? Une formation, un livre, une conversation ou la communauté vous a-t-elle touché de manière significative ? Nous voulons vous entendre — et célébrer l'œuvre de Dieu à travers ce mouvement.">
+          Has Team21 Academy impacted your life? Has a training, a book, a conversation, or the community touched you in a meaningful way? We want to hear from you — and celebrate God's work through this movement.
+        </p>
+        <br>
+        <p data-en="Your testimony will be shared with our team and community via WhatsApp. You may also attach a photo or document. Selected testimonies may be featured at the August 15 celebration."
+           data-fr="Votre témoignage sera partagé avec notre équipe et notre communauté via WhatsApp. Vous pouvez également joindre une photo ou un document. Les témoignages sélectionnés pourront être présentés lors de la célébration du 15 août.">
+          Your testimony will be shared with our team and community via WhatsApp. You may also attach a photo or document. Selected testimonies may be featured at the August 15 celebration.
+        </p>
+        <br>
+        <p style="color:var(--gold);font-weight:600;" data-en="🙏 Every story matters. Every testimony glorifies God." data-fr="🙏 Chaque histoire compte. Chaque témoignage glorifie Dieu.">
+          🙏 Every story matters. Every testimony glorifies God.
+        </p>
+      </div>
+      <div class="testimony-form-card">
+        <h3 data-en="✍️ Send Your Testimony" data-fr="✍️ Envoyez Votre Témoignage">✍️ Send Your Testimony</h3>
+        <div class="form-group-light">
+          <label data-en="Your Name" data-fr="Votre Nom">Your Name</label>
+          <input type="text" id="test-name" placeholder="Your full name" data-ph-en="Your full name" data-ph-fr="Votre nom complet">
+          <label data-en="Your Country / City" data-fr="Votre Pays / Ville">Your Country / City</label>
+          <input type="text" id="test-location" placeholder="e.g. Douala, Cameroon" data-ph-en="e.g. Douala, Cameroon" data-ph-fr="ex. Douala, Cameroun">
+          <label data-en="Your Testimony" data-fr="Votre Témoignage">Your Testimony</label>
+          <textarea id="test-message" rows="5" placeholder="Share how Team21 has impacted your life..." data-ph-en="Share how Team21 has impacted your life..." data-ph-fr="Partagez comment Team21 a impacté votre vie..."></textarea>
+          <label data-en="Attach a Photo or Document (optional)" data-fr="Joindre une Photo ou Document (facultatif)">Attach a Photo or Document (optional)</label>
+          <div class="file-upload-area" onclick="document.getElementById('test-file').click()">
+            <p data-en="📎 Click to attach a file (photo, PDF, etc.)" data-fr="📎 Cliquez pour joindre un fichier (photo, PDF, etc.)">📎 Click to attach a file (photo, PDF, etc.)</p>
+            <input type="file" id="test-file" accept="image/*,.pdf,.doc,.docx" onchange="updateFileLabel(this)">
+          </div>
+          <button class="btn-whatsapp" onclick="sendTestimonyWhatsApp()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <span data-en="Send via WhatsApp" data-fr="Envoyer via WhatsApp">Send via WhatsApp</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">TEAM21 ACADEMY</div>
+  <p style="margin-bottom:.5rem;color:var(--gold-light);font-family:'Cinzel',serif;font-size:.85rem;letter-spacing:.15em;">"UNLOCKING POTENTIAL"</p>
+  <p style="margin-bottom:1rem;" data-en="August 15 Celebration · Servant-Leadership · Cameroon & The World" data-fr="Célébration du 15 Août · Leadership-Serviteur · Cameroun & Le Monde">August 15 Celebration · Servant-Leadership · Cameroon & The World</p>
+  <p>
+    <a href="mailto:team21online@gmail.com">team21online@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://wa.me/237694294406">WhatsApp: +237 694 294 406</a>
+  </p>
+  <p style="margin-top:1.5rem;font-size:.75rem;opacity:.4;" data-en="© 2026 Team21 Academy · Inno4te Publishing · All rights reserved" data-fr="© 2026 Team21 Academy · Inno4te Publishing · Tous droits réservés">
+    © 2026 Team21 Academy · Inno4te Publishing · All rights reserved
+  </p>
+</footer>
+
+<script>
+// ── COUNTDOWN ──
+function updateCountdown() {
+  const target = new Date('2026-08-15T00:00:00');
+  const now = new Date();
+  const diff = target - now;
+  const days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+  document.getElementById('cd-days').textContent = days;
+}
+updateCountdown();
+setInterval(updateCountdown, 60000);
+
+// ── QUOTES TICKER ──
+const quotesEN = [
+  '"The greatest among you shall be your servant." — Matthew 23:11',
+  '"Leadership is not about being in charge. It is about taking care of those in your charge." — Simon Sinek',
+  '"Not so with you. Whoever wants to be great must be your servant." — Jesus, Matthew 20:26',
+  '"A true leader has the confidence to stand alone, the courage to make tough decisions, and the compassion to listen to the needs of others."',
+  '"Servant-leadership is the art of making others great."',
+  '"The measure of a leader is not the number of people who serve him, but the number of people he serves."',
+  '"He who would be greatest among you, let him be the servant of all." — Mark 10:44',
+  '"Excellence in service is not an act — it is a habit."',
+  '"Unlocking potential begins with serving others wholeheartedly."',
+  '"Team21: Where servant-leaders are born and sent forth."',
+];
+const quotesFR = [
+  '"Le plus grand parmi vous sera votre serviteur." — Matthieu 23:11',
+  '"Le leadership ne consiste pas à commander, mais à prendre soin de ceux qui vous sont confiés."',
+  '"Il n\'en sera pas ainsi parmi vous. Quiconque veut être grand sera votre serviteur." — Jésus, Matthieu 20:26',
+  '"Un vrai leader a la confiance de se tenir seul, le courage de prendre des décisions difficiles."',
+  '"Le leadership-serviteur est l\'art de rendre les autres grands."',
+  '"La mesure d\'un leader n\'est pas le nombre de personnes qui le servent, mais celles qu\'il sert."',
+  '"Que celui qui veut être le plus grand parmi vous soit le serviteur de tous." — Marc 10:44',
+  '"L\'excellence dans le service n\'est pas un acte — c\'est une habitude."',
+  '"Libérer le potentiel commence par servir les autres de tout cœur."',
+  '"Team21 : Là où les leaders-serviteurs naissent et sont envoyés dans le monde."',
+];
+
+let quoteIdx = 0;
+const quoteEl = document.getElementById('quoteDisplay');
+
+function cycleQuote() {
+  const quotes = currentLang === 'fr' ? quotesFR : quotesEN;
+  quoteEl.classList.add('fade-out');
+  setTimeout(() => {
+    quoteIdx = (quoteIdx + 1) % quotes.length;
+    quoteEl.textContent = quotes[quoteIdx];
+    quoteEl.classList.remove('fade-out');
+  }, 600);
+}
+setInterval(cycleQuote, 4500);
+
+// ── LANGUAGE SYSTEM ──
+const GOOGLE_FORM_URL = 'https://forms.gle/goFpbja5WPRakcdo7';
+let currentLang = 'en';
+
+function switchLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+
+  // Update all [data-en] / [data-fr] elements
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const txt = el.getAttribute('data-' + lang);
+    if (txt) el.innerHTML = txt;
+  });
+
+  // Update placeholders
+  document.querySelectorAll('[data-ph-' + lang + ']').forEach(el => {
+    el.placeholder = el.getAttribute('data-ph-' + lang);
+  });
+
+  // Update nav links
+  document.querySelectorAll('.nav-links a[data-en]').forEach(a => {
+    a.textContent = a.getAttribute('data-' + lang);
+  });
+
+  // Update lang bar selected
+  document.getElementById('langToggle').value = lang;
+}
+
+// ── RSVP ──
+function submitRSVP() {
+  const name = document.getElementById('rsvp-name').value.trim();
+  const phone = document.getElementById('rsvp-phone').value.trim();
+  const city = document.getElementById('rsvp-city').value.trim();
+  const guests = document.getElementById('rsvp-guests').value;
+
+  if (!name || !phone) {
+    alert(currentLang === 'en'
+      ? 'Please enter your name and phone number.'
+      : 'Veuillez entrer votre nom et votre numéro de téléphone.');
+    return;
+  }
+
+  // Build WhatsApp message
+  const msg = currentLang === 'en'
+    ? `🎉 *RSVP — Team21 August 15 Celebration*\n\n👤 Name: ${name}\n📞 Phone: ${phone}\n📍 Location: ${city || 'Not specified'}\n👥 Guests: ${guests}`
+    : `🎉 *RSVP — Célébration Team21 15 Août*\n\n👤 Nom: ${name}\n📞 Téléphone: ${phone}\n📍 Lieu: ${city || 'Non précisé'}\n👥 Invités: ${guests}`;
+
+  const waURL = `https://wa.me/237674917169?text=${encodeURIComponent(msg)}`;
+
+  // Also open Google Form
+  window.open(GOOGLE_FORM_URL, '_blank');
+  window.open(waURL, '_blank');
+
+  const successEl = document.getElementById('rsvp-success');
+  successEl.style.display = 'block';
+  successEl.innerHTML = successEl.getAttribute('data-' + currentLang);
+}
+
+// ── COMMITTEE JOIN ──
+function openCommitteeForm(committee) {
+  const msg = currentLang === 'en'
+    ? `📋 *Committee Registration — Team21 Aug 15*\n\nI would like to join the *${committee}* committee for the August 15 celebration.\n\nPlease send me more information.`
+    : `📋 *Inscription au Comité — Team21 15 Août*\n\nJe souhaite rejoindre le comité *${committee}* pour la célébration du 15 août.\n\nVeuillez m'envoyer plus d'informations.`;
+
+  const waURL = `https://wa.me/237694294406?text=${encodeURIComponent(msg)}`;
+
+  // Open both Google form and WhatsApp
+  window.open(GOOGLE_FORM_URL, '_blank');
+  setTimeout(() => window.open(waURL, '_blank'), 500);
+}
+
+// ── FILE LABEL ──
+function updateFileLabel(input) {
+  const area = input.closest('.file-upload-area');
+  const p = area.querySelector('p');
+  if (input.files.length > 0) {
+    p.textContent = '✅ ' + input.files[0].name;
+  }
+}
+
+// ── SEND TESTIMONY VIA WHATSAPP ──
+function sendTestimonyWhatsApp() {
+  const name = document.getElementById('test-name').value.trim();
+  const location = document.getElementById('test-location').value.trim();
+  const message = document.getElementById('test-message').value.trim();
+
+  if (!name || !message) {
+    alert(currentLang === 'en'
+      ? 'Please enter your name and testimony.'
+      : 'Veuillez entrer votre nom et votre témoignage.');
+    return;
+  }
+
+  const header = currentLang === 'en'
+    ? `🙏 *TESTIMONY — Team21 Academy*`
+    : `🙏 *TÉMOIGNAGE — Team21 Academy*`;
+
+  const fullMsg = `${header}\n\n👤 ${name}\n📍 ${location || '—'}\n\n${message}`;
+
+  const waURL = `https://wa.me/237694294406?text=${encodeURIComponent(fullMsg)}`;
+  window.open(waURL, '_blank');
+
+  // Note about attachment
+  const fileInput = document.getElementById('test-file');
+  if (fileInput.files.length > 0) {
+    setTimeout(() => {
+      alert(currentLang === 'en'
+        ? 'Your text testimony has been sent via WhatsApp. To attach your file, please send it directly in the WhatsApp chat that just opened.'
+        : 'Votre témoignage a été envoyé via WhatsApp. Pour joindre votre fichier, veuillez l\'envoyer directement dans la conversation WhatsApp qui vient de s\'ouvrir.');
+    }, 800);
+  }
+}
+
+// ── SCROLL ANIMATION ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.committe
